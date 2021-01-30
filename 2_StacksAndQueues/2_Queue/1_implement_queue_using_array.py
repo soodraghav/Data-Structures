@@ -13,6 +13,11 @@ class Queue():
         
     # TODO: Add the enqueue method
     def enqueue(self, value):
+
+        # TODO: Check if the queue is full; if it is, call the _handle_queue_capacity_full method
+        if self.queue_size == len(self.arr):
+            self._handle_queue_capacity_full()
+        
         self.arr[self.next_index] = value
         self.queue_size += 1
         self.next_index = (self.next_index + 1) % len(self.arr)
